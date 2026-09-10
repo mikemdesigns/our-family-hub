@@ -1,0 +1,10 @@
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+const payment = z.object({enabled:z.boolean().default(false),url:z.string().optional(),destination:z.string().optional()});
+const initiatives = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/initiatives'}),schema:z.object({
+ child:z.enum(['Rashid','Kamaal','Sophia']),title:z.string(),date:z.string().nullable().default(null),fundingDeadline:z.string().nullable().default(null),
+ description:z.string(),category:z.string(),goal:z.number().positive().nullable().default(null),raised:z.number().nonnegative().nullable().default(null),
+ status:z.enum(['auto','funding','funded','upcoming','completed','made-possible']).default('auto'),featured:z.boolean().default(true),secret:z.boolean().default(false),cta:z.string().default('Help Make It Happen'),
+ paymentMethods:z.record(payment).default({}),photos:z.object({albumUrl:z.string().default(''),coverImage:z.string().default('')}).default({albumUrl:'',coverImage:''})
+})});
+export const collections = {initiatives};

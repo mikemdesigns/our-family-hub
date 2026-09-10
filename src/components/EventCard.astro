@@ -1,0 +1,13 @@
+---
+import {identities,labels,money,progress,statusOf,dateLabel} from '../lib/events.mjs';
+const {event:e}=Astro.props;const id=identities[e.child];const state=statusOf(e);const p=progress(e);
+---
+<article class:list={['event-card',id.color]} data-event={e.id}>
+ <div class="card-top"><span class="identity"><span class="avatar">{id.initial}</span>{e.child}</span><span class="badge" data-status>{labels[state]}</span></div>
+ <p class="eyebrow category">{e.category}</p><h3>{e.title}</h3><p class="event-date">{dateLabel(e.date)}</p>
+ <p class="description">{e.description}</p>
+ {e.goal!=null && <div class="funding"><div class="funding-numbers"><span>{e.raised==null?<><strong>{money(e.goal)}</strong> goal</>:<><strong>{money(e.raised)}</strong> of {money(e.goal)}</>}</span>{p&&<strong>{p.percent}%</strong>}</div>
+ {p?<progress value={p.percent} max="100" aria-label={`${e.child}: ${p.percent}% funded`}/>:<div class="unknown-progress" aria-label="Funding progress not yet confirmed"></div>}
+ <p class="funding-note">{p?`${money(p.remaining)} still needed`:'Funding update coming soon'}</p></div>}
+ <div data-card-action>{state==='funding'?<button class="button card-button" data-contribute={e.id}>{e.cta}<span aria-hidden="true">↗</span></button>:state==='funded'?<p class="thanks">♡ Thanks, family. We made it happen.</p>:<p class="thanks">{labels[state]}</p>}</div>
+</article>
