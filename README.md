@@ -8,6 +8,19 @@ Edit the matching Markdown frontmatter. `raised: null` means unconfirmed, never 
 
 Status is derived using the America/New_York calendar date and refreshed on load, once a minute, and when the tab becomes visible. Dated completed events move into memories. No-date events stay active. Use status `auto` by default; overrides are `funding`, `funded`, `upcoming`, `completed`, and `made-possible`. With JavaScript disabled, the build-time state appears until the next build.
 
+### Initiative status values
+
+| Markdown value | Site label | When to use it |
+| --- | --- | --- |
+| `auto` or omit `status` | Calculated automatically | Uses the goal, amount raised, and event date to choose the current state. This is the usual choice. |
+| `funding` | Open for support | Contributions are currently welcome. |
+| `funded` | Goal reached | The funding goal has been met, even if the event is still ahead. |
+| `upcoming` | Coming up | The event is ahead, but there is no open contribution request. |
+| `completed` | Completed | The event has passed without being presented as a funded village effort. |
+| `made-possible` | Made possible | The event is complete and should appear in the family memories section. |
+
+For example, add `status: upcoming` on its own line in an initiative’s frontmatter to show **Coming up**. An explicit value overrides the automatic calculation until you change it again.
+
 Rashid's event contains only surprise-safe wording. Do not add private surprise details to the source unless you intend them to be delivered to visitors; hidden client content is not private.
 
 ## Payment methods

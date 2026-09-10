@@ -6,7 +6,7 @@ category: Birthday memory
 description: Sophia was celebrated with a group of her frieds at the Browns Mill Aquatic center. We had food and presents. According to her, it was her best birthday party ever!
 goal: 300
 raised: 300
-contributors: []
+contributors: [Gerri, The Hicks Family]
 status: made-possible
 featured: false
 photos:
