@@ -63,6 +63,8 @@ Omit `contributors` or use `contributors: []` when there are no public thank-you
 
 Each event has a folder under `public/images/events`. Set `photos.coverImage` for the large event image and add accessible `photos.gallery` entries for more on-site pictures. Add only deliberately shared album URLs to `photos.albumUrl`; no Google Photos API is used. See [PHOTO-GUIDE.md](PHOTO-GUIDE.md) for the complete walkthrough. Never put private-library links into a shared site.
 
+Credits and reuse terms for externally sourced images are recorded in [IMAGE-CREDITS.md](IMAGE-CREDITS.md).
+
 ## Build and maintenance
 
 Run `npm install`, `npm run dev`, `npm test`, and `npm run build`. Static output is `build/`. Publish an updated build after content changes. The included GitHub Actions workflow builds on a runner and uploads the static output to DreamHost. See DEPLOYMENT.md for setup.
