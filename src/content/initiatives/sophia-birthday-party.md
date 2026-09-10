@@ -1,12 +1,12 @@
 ---
 child: Sophia
 title: Birthday Party
-date: null
+date: '2026-08-18'
 category: Birthday memory
-description: Sophia was celebrated with a group of her frieds at the Browns Mill Aquatic center. We had food and presents. According to her, it was her best birthday party ever!
+description: Sophia was celebrated with a group of her friends at the Browns Mill Aquatic Center. We had food and presents. According to her, it was her best birthday party ever!
 goal: 300
 raised: 300
-contributors: [Gerri, The Hicks Family]
+contributors: [Gerri, Donald & Dana]
 status: made-possible
 featured: false
 photos:
