@@ -3,6 +3,7 @@ import {getCollection} from 'astro:content';
 import MemoryCard from '../components/MemoryCard.astro';
 import TimelineCard from '../components/TimelineCard.astro';
 import AboutThisSite from '../components/AboutThisSite.astro';
+import GeneralSupport from '../components/GeneralSupport.astro';
 import VillageThanks from '../components/VillageThanks.astro';
 import {sortedEvents,statusOf} from '../lib/events.mjs';
 import '../styles/global.css';
@@ -14,6 +15,7 @@ const memories=events.filter(e=>['completed','made-possible'].includes(statusOf(
 <body><a class="skip-link" href="#main">Skip to content</a>
 <header class="header wrap"><a class="brand" href="#home" aria-label="The Martin Family home"><span class="monogram">M<span>•</span></span><span>The Martin Family<small>OUR LITTLE CORNER OF THE WORLD</small></span></a><nav aria-label="Main navigation"><a href="#about">About</a><a href="#timeline">Timeline</a><a href="#thanks">Thank-yous</a><a href="#memories">Memories</a></nav><button class="button help-button" data-help>♡ <span>Ways to help</span></button></header>
 <main id="main"><section class="family-hero wrap" id="home"><img src="/images/family/family-under-bridge.jpg" alt="Three Martin children sitting together beneath leafy branches" fetchpriority="high" decoding="async"/><div class="family-hero-shade"></div><div class="family-hero-copy"><p class="eyebrow">WELCOME TO OUR FAMILY HUB</p><h1>The Martin<br/>Family</h1><p>Birthdays, milestones, performances, and the moments we’re making together.</p><span class="hero-handwritten">Same kids. Bigger stories. <b aria-hidden="true">♡</b></span></div></section>
+<GeneralSupport/>
 <AboutThisSite/>
 <section class="timeline-section" id="timeline"><div class="wrap timeline-layout"><div class="timeline-intro"><p class="eyebrow">ONE MOMENT AT A TIME</p><h2>What’s coming up?</h2><p>Choose a card to see the full story, details, and ways to help.</p><div class="status-key" aria-label="Status guide"><div><span class="badge status-funding">Open for support</span><small>Contributions welcome</small></div><div><span class="badge status-funded">Goal reached</span><small>Fully funded</small></div><div><span class="badge status-upcoming">Coming up</span><small>No funding request</small></div><div><span class="badge status-made-possible">Made possible</span><small>A completed moment</small></div></div><div class="family-initials" aria-label="Rashid, Kamaal, and Sophia"><span class="peach">R</span><span class="blue">K</span><span class="lilac">S</span><span class="family-heart">♡</span></div><figure class="timeline-family-photo"><img src="/images/family/family-portrait.jpg" alt="The three Martin children standing together and smiling" loading="lazy" decoding="async"/><figcaption>Together is our favorite place to be.</figcaption></figure></div><div class="timeline" id="timeline-events">{active.map(event=><TimelineCard event={event}/>)}</div></div></section>
 <VillageThanks events={events}/>

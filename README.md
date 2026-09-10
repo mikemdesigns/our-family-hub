@@ -73,4 +73,4 @@ The page has noindex/nofollow and robots.txt disallow rules. These are not authe
 
 ## Content still needed
 
-Confirmed funding totals, Sophia's pointe-shoe date (optional), the date of Sophia's completed birthday party (optional), and selected family photos/albums. Rashid and Sophia have their supplied Cash App pool links enabled. The general Cash App account https://cash.app/$truthhz is the default for Kamaal, Rashid's graduation fees, and new initiatives without an override.
+Confirmed funding totals, Sophia's pointe-shoe date (optional), the date of Sophia's completed birthday party (optional), and selected family photos/albums. Rashid and Sophia have their supplied Cash App pool links enabled. The general family support pool https://cash.app/pools/POOL_8691E637-1974-4B78-B237-D63175C39406 is the default for Kamaal, Rashid's graduation fees, and new initiatives without an override.
