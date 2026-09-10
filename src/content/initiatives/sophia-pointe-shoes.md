@@ -4,9 +4,10 @@ title: First Pointe Shoes
 date: null
 fundingDeadline: '2026-09-10'
 category: Ballet milestone
-description: A big step in Sophia's ballet journey. Help celebrate the dedication behind her very first pair of pointe shoes.
+description: Sophia has been taking her dance training very seriously, and was recently accepted into the DAA Pointe Class which means she'll be learning how to do formal ballet training with pointe shoes. This is a huge step in her career. To participate she will need to be measured, fitted and trained by an instructor on how to even put the shoes on. We're grateful she's been accepted and she's ecstatic!
 goal: 150
 raised: null
+contributors: []
 cta: Support Sophia's Milestone
 photos:
   coverImage: '/images/events/sophia-pointe-shoes/pointe-shoes.jpg'

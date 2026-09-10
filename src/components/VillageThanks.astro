@@ -1,6 +1,6 @@
 ---
 const {events=[]}=Astro.props;
-const thankYous=events.flatMap(event=>event.supporters?.length?event.supporters.map(name=>({name,event})):(event.raised??0)>0?[{name:'our village',event}]:[]);
+const thankYous=events.flatMap(event=>event.contributors?.length?event.contributors.map(name=>({name,event})):(event.raised??0)>0?[{name:'our village',event}]:[]);
 ---
 <section class="village-thanks wrap" id="thanks" aria-labelledby="village-thanks-title">
  <div class="village-thanks-heading">

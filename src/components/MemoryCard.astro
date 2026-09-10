@@ -1,18 +1,21 @@
 ---
-import {dateLabel,imageSource,labels,money,safeLink,statusOf} from '../lib/events.mjs';
+import {dateLabel,imageSource,labels,statusDescriptions,money,safeLink,statusOf} from '../lib/events.mjs';
 const {event:e}=Astro.props;
 const gallery=(e.photos?.gallery||[]).map(photo=>({...photo,src:imageSource(photo.src)})).filter(photo=>photo.src);
 const cover=imageSource(e.photos?.coverImage)||gallery[0]?.src;
 const remaining=gallery.filter(photo=>photo.src!==cover);
 const album=safeLink(e.photos?.albumUrl);
+const state=statusOf(e);
 ---
 <article class="memory-card">
+ <a class="memory-card-hitbox" href={`/events/${e.id}/`} aria-label={`View details for ${e.child}’s ${e.title}`}></a>
  <div class:list={['memory-photos',cover?'has-photo':'empty-photo']}>
   {cover?<img class="memory-cover" src={cover} alt={gallery.find(photo=>photo.src===cover)?.alt||`${e.child} · ${e.title}`} loading="lazy" decoding="async"/>:<div class="photo-placeholder"><span aria-hidden="true">♡</span><strong>Photos coming soon</strong></div>}
   {remaining.length>0&&<div class="memory-thumbnails">{remaining.slice(0,3).map((photo,index)=><span class="memory-thumb"><img src={photo.src} alt={photo.alt} loading="lazy" decoding="async"/>{index===2&&remaining.length>3&&<span class="photo-count">+{remaining.length-3}</span>}</span>)}</div>}
  </div>
- <p class="eyebrow">{labels[statusOf(e)]}</p>
+ <p class:list={['eyebrow','memory-status',`status-${state}`]} title={statusDescriptions[state]}>{labels[state]}</p>
  <h3>{e.child} · {e.title}</h3>
  <p>{e.date?dateLabel(e.date):'A family memory'}{e.goal!=null?` · ${money(e.goal)} made possible`:''}</p>
- {album?<a class="button help-button" href={album} target="_blank" rel="noopener noreferrer">View the full album ↗</a>:<p class="photo-note">Add photos whenever you’re ready.</p>}
+ {e.contributors?.length>0&&<span class="initiative-thanks-badge memory-thanks-badge">♡ Thank you ×{e.contributors.length}</span>}
+ {album?<a class="button help-button memory-album-action" href={album} target="_blank" rel="noopener noreferrer">View photo album ↗</a>:<p class="photo-note">Add photos whenever you’re ready.</p>}
 </article>

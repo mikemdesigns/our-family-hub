@@ -3,8 +3,9 @@ child: Kamaal
 title: Birthday Celebration
 date: '2026-09-18'
 category: Birthday
-description: Let's make Kamaal's birthday feel extra special, with a celebration full of love.
-goal: 150
+description: We're looking to gather Kamaal and a group of his friends to visit Stars and Strikes.
+goal: 300
 raised: null
+contributors: []
 cta: Celebrate Kamaal
 ---

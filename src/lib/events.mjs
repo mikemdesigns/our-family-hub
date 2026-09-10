@@ -1,6 +1,7 @@
 export const identities = {Rashid:{initial:'R',color:'peach'},Kamaal:{initial:'K',color:'blue'},Sophia:{initial:'S',color:'lilac'}};
 export const globalPaymentMethods = {cashapp:{enabled:true,url:'https://cash.app/$truthhz'},venmo:{enabled:false,url:''},zelle:{enabled:false,destination:''},card:{enabled:false,url:''}};
-export const labels = {funding:'Needs help',funded:'Fully funded',upcoming:'Upcoming',completed:'Completed','made-possible':'Made possible'};
+export const labels = {funding:'Open for support',funded:'Goal reached',upcoming:'Coming up',completed:'Completed','made-possible':'Made possible'};
+export const statusDescriptions = {funding:'Contributions are welcome',funded:'The funding goal has been met',upcoming:'No contribution request is open',completed:'This moment has passed','made-possible':'Our village helped make this happen'};
 export const money = value => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(value);
 export function todayKey(now = new Date()) {return new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);}
 export function statusOf(e,today=todayKey()) {

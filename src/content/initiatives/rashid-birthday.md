@@ -3,9 +3,10 @@ child: Rashid
 title: Birthday Surprise
 date: '2026-09-11'
 category: Birthday
-description: A little birthday magic and a special day to remember. We're keeping the details under wraps.
+description: If you don't already know Rashid has been obsessed with Hamilton ever since he watched it years ago. It just happens that there is a performance at the historic and legendary Fox Theater in Atlanta. We would like to fund a mommy son date for the two of them to attend. Tickets start at just under $100 each. This will be a lifetime memory for him.
 goal: 200
 raised: null
+contributors: []
 secret: true
 cta: Help Make It Happen
 photos:

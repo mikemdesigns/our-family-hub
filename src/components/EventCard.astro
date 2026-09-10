@@ -1,12 +1,13 @@
 ---
-import {identities,labels,money,progress,statusOf,dateLabel,fullDateLabel,imageSource} from '../lib/events.mjs';
+import {identities,labels,statusDescriptions,money,progress,statusOf,dateLabel,fullDateLabel,imageSource} from '../lib/events.mjs';
 const {event:e}=Astro.props;const id=identities[e.child];const state=statusOf(e);const p=progress(e);const cover=imageSource(e.photos?.coverImage);const coverAlt=e.photos?.gallery?.find(photo=>imageSource(photo.src)===cover)?.alt||`${e.child} · ${e.title}`;
 ---
 <article class:list={['event-card',id.color]} data-event={e.id}>
  {cover&&<div class="event-cover-wrap"><img class="event-cover" src={cover} alt={coverAlt} loading="lazy" decoding="async"/>{e.secret&&<span class="secret-ribbon"><span aria-hidden="true">✦</span> Shh—keep it a surprise</span>}</div>}
- <div class="card-top"><span class="identity"><span class="avatar">{id.initial}</span>{e.child}</span><span class="badge" data-status>{labels[state]}</span></div>
+ <div class="card-top"><span class="identity"><span class="avatar">{id.initial}</span>{e.child}</span><span class:list={['badge',`status-${state}`]} data-status title={statusDescriptions[state]}>{labels[state]}</span></div>
  <p class="eyebrow category">{e.category}</p><h3>{e.title}</h3><p class="event-date">{e.date?dateLabel(e.date):e.fundingDeadline?`Funding due ${fullDateLabel(e.fundingDeadline)}`:'Date to come'}</p>
  <p class="description">{e.description}</p>
+ {e.contributors?.length>0&&<span class="initiative-thanks-badge">♡ Thank you ×{e.contributors.length}</span>}
  {e.goal!=null && <div class="funding"><div class="funding-numbers"><span>{e.raised==null?<><strong>{money(e.goal)}</strong> goal</>:<><strong>{money(e.raised)}</strong> of {money(e.goal)}</>}</span>{p&&<strong>{p.percent}%</strong>}</div>
  {p?<progress value={p.percent} max="100" aria-label={`${e.child}: ${p.percent}% funded`}/>:<div class="unknown-progress" aria-label="Funding progress not yet confirmed"></div>}
  <p class="funding-note">{p?`${money(p.remaining)} still needed`:'Funding update coming soon'}</p></div>}

@@ -36,15 +36,15 @@ Use an actual provider payment link for card/wallet options; wallet availability
 
 ## Thanking contributors
 
-Add contributor names to the matching initiative with the optional `supporters` list. Their names will appear in the homepage Village Thanks section, on the event page, and as a small thank-you count on the timeline card. Contribution amounts are never shown with names. Only add a name after the person has agreed to be named on the public site.
+Add contributor names to the matching initiative with the optional `contributors` list. Their names will appear in the homepage Village Thanks section, on the event page, and as a small thank-you badge on the initiative card. Contribution amounts are never shown with names. Only add a name after the person has agreed to be named on the public site.
 
 ```yaml
-supporters:
+contributors:
   - Auntie Carol
   - The Johnson Family
 ```
 
-Omit `supporters` or use `supporters: []` when there are no public thank-yous to show yet. The site will display a friendly placeholder.
+Omit `contributors` or use `contributors: []` when there are no public thank-yous to show yet. The site will display a friendly placeholder.
 
 ## Photos
 

@@ -3,9 +3,10 @@ child: Sophia
 title: Birthday Party
 date: null
 category: Birthday memory
-description: A joyful birthday celebration surrounded by family, fun, and plenty of reasons to smile.
+description: Sophia was celebrated with a group of her frieds at the Browns Mill Aquatic center. We had food and presents. According to her, it was her best birthday party ever!
 goal: 300
 raised: 300
+contributors: []
 status: made-possible
 featured: false
 photos:
