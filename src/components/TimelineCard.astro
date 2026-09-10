@@ -1,0 +1,12 @@
+---
+import {identities,labels,money,progress,statusOf,dateLabel,fullDateLabel,imageSource} from '../lib/events.mjs';
+const {event:e}=Astro.props;const identity=identities[e.child];const state=statusOf(e);const eventProgress=progress(e);const cover=imageSource(e.photos?.coverImage);const coverAlt=e.photos?.gallery?.find(photo=>imageSource(photo.src)===cover)?.alt||`${e.child} · ${e.title}`;
+---
+<article class:list={['timeline-item',identity.color]} data-timeline-event={e.id}>
+ <div class="timeline-date">{e.date?<><span>{new Date(e.date+'T12:00:00Z').toLocaleDateString('en-US',{month:'short',timeZone:'UTC'})}</span><strong>{Number(e.date.slice(-2))}</strong></>:<><span>DATE</span><strong class="tbd">TBC</strong></>}</div>
+ <div class="timeline-dot"></div>
+ <a class="timeline-card" href={`/events/${e.id}/`} aria-label={`View details for ${e.child}’s ${e.title}`}>
+  <div class="timeline-main"><span class="timeline-thumb">{cover?<img src={cover} alt={coverAlt} loading="lazy" decoding="async"/>:<span class="avatar" aria-hidden="true">{identity.initial}</span>}</span><div class="timeline-copy"><p class="eyebrow">{e.child}</p><h3>{e.title}</h3><p>{e.date?dateLabel(e.date):'A milestone in the making'}</p>{e.fundingDeadline&&<p>Support by {fullDateLabel(e.fundingDeadline)}</p>}</div></div>
+  <div class="timeline-progress-area"><span class="badge" data-status>{labels[state]}</span>{e.goal!=null&&<div class="timeline-funding"><div class="timeline-funding-label"><strong>{e.raised==null?`${money(e.goal)} goal`:`${money(e.raised)} of ${money(e.goal)}`}</strong>{eventProgress&&<span>{eventProgress.percent}%</span>}</div>{eventProgress?<progress value={eventProgress.percent} max="100" aria-label={`${e.title} funding progress`}>{eventProgress.percent}%</progress>:<div class="unknown-progress" role="img" aria-label={`${e.title} funding total will be updated soon`}></div>}<small>{e.raised==null?'Funding update coming soon':eventProgress.remaining===0?'Goal reached':`${money(eventProgress.remaining)} to go`}</small></div>}<span class="timeline-arrow" aria-hidden="true">›</span></div>
+ </a>
+</article>
