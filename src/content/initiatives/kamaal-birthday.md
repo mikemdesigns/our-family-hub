@@ -12,4 +12,8 @@ photos:
   coverImage: '/images/events/kamaal-birthday/bowling-alley.jpg'
   gallery: []
   albumUrl: ''
+paymentMethods:
+  cashapp:
+    enabled: true
+    url: 'https://cash.app/pools/POOL_195D48C3-0335-40EC-9A38-DF0A58920C2D'
 ---
