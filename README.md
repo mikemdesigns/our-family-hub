@@ -36,7 +36,7 @@ Use an actual provider payment link for card/wallet options; wallet availability
 
 ## Photos
 
-Add only deliberately shared album URLs to a specific event. No Google Photos API is used. Set `photos.albumUrl` to the shared link and `photos.coverImage` to an HTTPS image URL or `/images/filename.jpg` placed in public/images. Never put private-library links into a shared site. Completed events without albums say photos are to come.
+Each event has a folder under `public/images/events`. Set `photos.coverImage` for the large event image and add accessible `photos.gallery` entries for more on-site pictures. Add only deliberately shared album URLs to `photos.albumUrl`; no Google Photos API is used. See [PHOTO-GUIDE.md](PHOTO-GUIDE.md) for the complete walkthrough. Never put private-library links into a shared site.
 
 ## Build and maintenance
 
@@ -46,4 +46,4 @@ The page has noindex/nofollow and robots.txt disallow rules. These are not authe
 
 ## Content still needed
 
-Confirmed funding totals, Sophia's milestone date (optional), and explicitly shared memory photos/albums. Rashid and Sophia have their supplied Cash App pool links enabled. The general Cash App account https://cash.app/$truthhz is the default for Kamaal and any new initiative without an override. Only the three initial initiatives are included; example school events and completed memories were not treated as real family data.
+Confirmed funding totals, Sophia's pointe-shoe date (optional), the date of Sophia's completed birthday party (optional), and selected family photos/albums. Rashid and Sophia have their supplied Cash App pool links enabled. The general Cash App account https://cash.app/$truthhz is the default for Kamaal, Rashid's graduation fees, and new initiatives without an override.

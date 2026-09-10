@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {statusOf,progress,sortedEvents,countdown,todayKey,paymentOptions,safeLink} from '../src/lib/events.mjs';
+import {statusOf,progress,sortedEvents,countdown,todayKey,paymentOptions,safeLink,imageSource,fullDateLabel} from '../src/lib/events.mjs';
 const e={date:'2026-09-11',goal:200,raised:125,status:'auto'};
 test('event lifecycle and non-funded events',()=>{assert.equal(statusOf(e,'2026-09-09'),'funding');assert.equal(statusOf({...e,raised:200},'2026-09-11'),'funded');assert.equal(statusOf({...e,raised:200},'2026-09-12'),'made-possible');assert.equal(statusOf(e,'2026-09-12'),'completed');assert.equal(statusOf({...e,goal:null,raised:null},'2026-09-09'),'upcoming');assert.equal(statusOf({...e,date:null},'2026-09-12'),'funding');assert.equal(statusOf({...e,status:'upcoming'},'2026-09-12'),'upcoming');});
 test('unknown totals stay unknown; overfunding never creates negative remaining',()=>{assert.equal(progress({...e,raised:null}),null);assert.deepEqual(progress(e),{percent:63,remaining:75});assert.deepEqual(progress({...e,raised:230}),{percent:100,remaining:0});});
@@ -8,3 +8,4 @@ test('date ordering and Eastern calendar day boundaries',()=>{assert.deepEqual(s
 test('payment destinations must be enabled and usable',()=>{assert.equal(paymentOptions({paymentMethods:{}})[0][1].url,'https://cash.app/$truthhz');assert.deepEqual(paymentOptions({paymentMethods:{cashapp:{enabled:false}}}),[]);assert.equal(safeLink('javascript:alert(1)'),null);assert.equal(paymentOptions({paymentMethods:{cashapp:{enabled:true,url:'https://cash.app/example'},card:{enabled:true,url:''},zelle:{enabled:false,destination:'example'}}}).length,1);});
 
 test('initiative pools override the general family account',()=>{const options=paymentOptions({paymentMethods:{cashapp:{enabled:true,url:'https://cash.app/pools/POOL_524E5906-5F45-4AEF-B8B5-B9A57FFEA598'}}});assert.equal(options[0][1].url,'https://cash.app/pools/POOL_524E5906-5F45-4AEF-B8B5-B9A57FFEA598');});
+test('event photos accept the documented local formats and safe remote images',()=>{assert.equal(imageSource('/images/events/sophia-birthday-party/cake.webp'),'/images/events/sophia-birthday-party/cake.webp');assert.equal(imageSource('https://images.example.com/photo.jpg'),'https://images.example.com/photo.jpg');assert.equal(imageSource('/private/family.jpg'),null);assert.equal(imageSource('/images/events/photo.svg'),null);assert.equal(fullDateLabel('2027-01-01'),'January 1, 2027');});
