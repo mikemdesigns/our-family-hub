@@ -8,6 +8,12 @@ goal: 200
 raised: null
 secret: true
 cta: Help Make It Happen
+photos:
+  coverImage: '/images/events/rashid-birthday/hamilton.jpg'
+  gallery:
+    - src: '/images/events/rashid-birthday/hamilton.jpg'
+      alt: 'Gold and black Hamilton musical artwork'
+  albumUrl: ''
 paymentMethods:
   cashapp:
     enabled: true
