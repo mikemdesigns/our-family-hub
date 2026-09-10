@@ -4,7 +4,7 @@ A mobile-first Astro family hub. Event content lives in `src/content/initiatives
 
 ## Updating family moments
 
-Edit the matching Markdown frontmatter. `raised: null` means unconfirmed, never zero. Set an actual amount (including zero if confirmed) to display the progress bar and remaining amount. Dates use quoted YYYY-MM-DD strings; `date: null` means a date has not been chosen. Event date and fundingDeadline are separate fields.
+Edit the matching Markdown frontmatter. `raised: null` means unconfirmed, never zero. Set an actual amount (including zero if confirmed) to display the progress bar and remaining amount. Dates use quoted YYYY-MM-DD strings; `date: null` means a date has not been chosen. The “What’s coming up” timeline uses `fundingDeadline` for both placement and the displayed date. When an event has no funding deadline, it falls back to `date`.
 
 Status is derived using the America/New_York calendar date and refreshed on load, once a minute, and when the tab becomes visible. Dated completed events move into memories. No-date events stay active. Use status `auto` by default; overrides are `funding`, `funded`, `upcoming`, `completed`, and `made-possible`. With JavaScript disabled, the build-time state appears until the next build.
 
