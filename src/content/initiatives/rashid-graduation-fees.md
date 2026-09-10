@@ -11,7 +11,7 @@ contributors: []
 status: funding
 cta: Support Rashid's Graduation
 photos:
-  coverImage: ''
+  coverImage: '/images/events/rashid-graduation-fees/graduation-regalia.svg'
   gallery: []
   albumUrl: ''
 ---

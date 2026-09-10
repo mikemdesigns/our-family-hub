@@ -8,4 +8,8 @@ goal: 300
 raised: null
 contributors: []
 cta: Celebrate Kamaal
+photos:
+  coverImage: '/images/events/kamaal-birthday/bowling-alley.jpg'
+  gallery: []
+  albumUrl: ''
 ---

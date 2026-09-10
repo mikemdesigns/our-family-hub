@@ -11,7 +11,7 @@ contributors: []
 status: auto
 cta: Support Rashid's Belt Test
 photos:
-  coverImage: ''
+  coverImage: '/images/events/rashid-purple-belt-test/purple-belt.svg'
   gallery: []
   albumUrl: ''
 ---

@@ -8,7 +8,7 @@ description: Sophia has an incredible opportunity to spend eight days in London 
 goal: 4429
 raised: null
 contributors: []
-status: auto
+status: upcoming
 cta: Support Sophia's Chorus Trip
 photos:
   coverImage: '/images/events/sophia-europe-chorus/louvre.jpg'
