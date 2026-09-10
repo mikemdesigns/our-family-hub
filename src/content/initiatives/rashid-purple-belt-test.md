@@ -14,4 +14,8 @@ photos:
   coverImage: '/images/events/rashid-purple-belt-test/purple-belt.svg'
   gallery: []
   albumUrl: ''
+paymentMethods:
+  cashapp:
+    enabled: true
+    url: 'https://cash.app/pools/POOL_776A6BEE-01C6-41E6-9D74-094CE426962F'
 ---
