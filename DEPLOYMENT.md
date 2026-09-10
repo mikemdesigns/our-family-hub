@@ -54,18 +54,22 @@ First run: open GitHub **Actions → Deploy to DreamHost → Run workflow**. It 
 
 ## 4. Or deploy directly from your computer
 
-Use Node 22.12 or later in the Node 22 line, Git, SSH, and rsync. On your own machine, authorize an SSH key and verify the server before deployment. The script uses your normal SSH configuration.
+Use Node 22.12 or later in the Node 22 line, Git, SSH, and rsync. On your own machine, authorize an SSH key and verify the server before deployment. Copy the example deployment settings into the ignored local `.env` file:
 
 ```sh
 npm ci
-export DREAMHOST_HOST='YOUR_SERVER.dreamhost.com'
-export DREAMHOST_USER='YOUR_SHELL_USER'
-export DREAMHOST_PATH='/home/YOUR_SHELL_USER/YOUR_DOMAIN'
+cp .env.example .env
+chmod 600 .env
+```
+
+Edit `.env` with the DreamHost host, user, website directory, and optional absolute SSH key path. Then deploy without exporting variables in each Terminal session:
+
+```sh
 npm run deploy:preview
 npm run deploy
 ```
 
-`deploy:preview` builds and shows the upload plan without changing the server. Both commands require a working SSH connection. No credentials are supplied in this package.
+`deploy:preview` tests, builds, and shows the upload plan without changing the server. `deploy` tests, builds, and uploads the result. The `.env` file is ignored by Git; `.env.example` documents the required variable names without storing account values. The private SSH key stays in `~/.ssh` and `.env` stores only its path.
 
 If you prefer SFTP, upload the **contents** of the included static ZIP into the domain's web directory. The index.html file must sit directly in that directory. Include `.htaccess` and the `_astro` directory.
 

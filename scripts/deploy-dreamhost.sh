@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
-cd "$(dirname "$0")/.."
+project_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$project_root"
+
+env_file="${DEPLOY_ENV_FILE:-$project_root/.env}"
+if [[ -f "$env_file" ]]; then
+  set -a
+  # The deployment .env is a local, trusted shell-compatible settings file.
+  source "$env_file"
+  set +a
+fi
+
 : "${DREAMHOST_HOST:?Set DREAMHOST_HOST to your DreamHost SSH server}"
 : "${DREAMHOST_USER:?Set DREAMHOST_USER to your DreamHost shell username}"
 : "${DREAMHOST_PATH:?Set DREAMHOST_PATH to the dedicated domain web directory}"
@@ -15,7 +25,14 @@ case "${1:-}" in
   '') ;;
   *) echo 'Usage: scripts/deploy-dreamhost.sh [--dry-run]' >&2; exit 1 ;;
 esac
-export RSYNC_RSH='ssh -o BatchMode=yes -o StrictHostKeyChecking=yes'
+ssh_command=(ssh -o BatchMode=yes -o StrictHostKeyChecking=yes)
+if [[ -n "${DREAMHOST_SSH_KEY_FILE:-}" ]]; then
+  [[ "$DREAMHOST_SSH_KEY_FILE" = /* ]] || { echo 'DREAMHOST_SSH_KEY_FILE must be an absolute path.' >&2; exit 1; }
+  [[ -f "$DREAMHOST_SSH_KEY_FILE" ]] || { echo 'DREAMHOST_SSH_KEY_FILE does not exist.' >&2; exit 1; }
+  ssh_command+=(-i "$DREAMHOST_SSH_KEY_FILE" -o IdentitiesOnly=yes)
+fi
+printf -v RSYNC_RSH '%q ' "${ssh_command[@]}"
+export RSYNC_RSH="${RSYNC_RSH% }"
 destination="${DREAMHOST_USER}@${DREAMHOST_HOST}:${DREAMHOST_PATH%/}/"
 # Upload referenced assets before switching the page; retain old assets for open tabs.
 rsync "${args[@]}" --exclude='/index.html' build/ "$destination"
