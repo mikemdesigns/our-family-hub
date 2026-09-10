@@ -6,6 +6,6 @@ const initiatives = defineCollection({loader:glob({pattern:'**/*.md',base:'./src
  child:z.enum(['Rashid','Kamaal','Sophia']),title:z.string(),date:z.string().nullable().default(null),fundingDeadline:z.string().nullable().default(null),
  description:z.string(),category:z.string(),goal:z.number().positive().nullable().default(null),raised:z.number().nonnegative().nullable().default(null),
  status:z.enum(['auto','funding','funded','upcoming','completed','made-possible']).default('auto'),featured:z.boolean().default(true),secret:z.boolean().default(false),cta:z.string().default('Help Make It Happen'),
- paymentMethods:z.record(payment).default({}),photos:z.object({albumUrl:z.string().default(''),coverImage:z.string().default(''),gallery:z.array(eventPhoto).default([])}).default({albumUrl:'',coverImage:'',gallery:[]})
+ supporters:z.array(z.string().min(1)).default([]),paymentMethods:z.record(payment).default({}),photos:z.object({albumUrl:z.string().default(''),coverImage:z.string().default(''),gallery:z.array(eventPhoto).default([])}).default({albumUrl:'',coverImage:'',gallery:[]})
 })});
 export const collections = {initiatives};

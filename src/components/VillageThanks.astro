@@ -1,0 +1,11 @@
+---
+const {events=[]}=Astro.props;
+const thankYous=events.flatMap(event=>event.supporters?.length?event.supporters.map(name=>({name,event})):(event.raised??0)>0?[{name:'our village',event}]:[]);
+---
+<section class="village-thanks wrap" id="thanks" aria-labelledby="village-thanks-title">
+ <div class="village-thanks-heading">
+  <div><p class="eyebrow">LOVE FROM OUR VILLAGE</p><h2 id="village-thanks-title">Thank you for showing up.</h2></div>
+  <p>Every check-in, contribution, and word of encouragement means more than we can say.</p>
+ </div>
+ {thankYous.length>0?<div class="supporter-badges village-supporter-badges">{thankYous.map(({name,event})=><a class="supporter-badge" href={`/events/${event.id}/`}><span aria-hidden="true">♡</span><span><strong>Thank you, {name}</strong><small>For helping with {event.child}’s {event.title}</small></span></a>)}</div>:<div class="village-thanks-empty"><span aria-hidden="true">♡</span><p>As friends and family help make a moment possible, we’ll add a thank-you here—with their permission and without sharing contribution amounts.</p></div>}
+</section>

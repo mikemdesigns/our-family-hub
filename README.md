@@ -34,6 +34,18 @@ paymentMethods:
 
 Use an actual provider payment link for card/wallet options; wallet availability depends on the provider. No payment is confirmed by the site, and totals only change when edited by the family.
 
+## Thanking contributors
+
+Add contributor names to the matching initiative with the optional `supporters` list. Their names will appear in the homepage Village Thanks section, on the event page, and as a small thank-you count on the timeline card. Contribution amounts are never shown with names. Only add a name after the person has agreed to be named on the public site.
+
+```yaml
+supporters:
+  - Auntie Carol
+  - The Johnson Family
+```
+
+Omit `supporters` or use `supporters: []` when there are no public thank-yous to show yet. The site will display a friendly placeholder.
+
 ## Photos
 
 Each event has a folder under `public/images/events`. Set `photos.coverImage` for the large event image and add accessible `photos.gallery` entries for more on-site pictures. Add only deliberately shared album URLs to `photos.albumUrl`; no Google Photos API is used. See [PHOTO-GUIDE.md](PHOTO-GUIDE.md) for the complete walkthrough. Never put private-library links into a shared site.
