@@ -46,4 +46,4 @@ The page has noindex/nofollow and robots.txt disallow rules. These are not authe
 
 ## Content still needed
 
-Confirmed funding totals, Kamaal's payment destination, Sophia's milestone date (optional), and explicitly shared memory photos/albums. Rashid and Sophia have their supplied Cash App pool links enabled. Only the three initial initiatives are included; example school events and completed memories were not treated as real family data.
+Confirmed funding totals, Sophia's milestone date (optional), and explicitly shared memory photos/albums. Rashid and Sophia have their supplied Cash App pool links enabled. The general Cash App account https://cash.app/$truthhz is the default for Kamaal and any new initiative without an override. Only the three initial initiatives are included; example school events and completed memories were not treated as real family data.

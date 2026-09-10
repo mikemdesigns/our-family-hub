@@ -1,5 +1,5 @@
 export const identities = {Rashid:{initial:'R',color:'peach'},Kamaal:{initial:'K',color:'blue'},Sophia:{initial:'S',color:'lilac'}};
-export const globalPaymentMethods = {cashapp:{enabled:false,url:''},venmo:{enabled:false,url:''},zelle:{enabled:false,destination:''},card:{enabled:false,url:''}};
+export const globalPaymentMethods = {cashapp:{enabled:true,url:'https://cash.app/$truthhz'},venmo:{enabled:false,url:''},zelle:{enabled:false,destination:''},card:{enabled:false,url:''}};
 export const labels = {funding:'Needs help',funded:'Fully funded',upcoming:'Upcoming',completed:'Completed','made-possible':'Made possible'};
 export const money = value => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(value);
 export function todayKey(now = new Date()) {return new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);}
