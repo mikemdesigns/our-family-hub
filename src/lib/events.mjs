@@ -1,5 +1,5 @@
 export const identities = {Rashid:{initial:'R',color:'peach'},Kamaal:{initial:'K',color:'blue'},Sophia:{initial:'S',color:'lilac'}};
-export const generalSupportPool = 'https://cash.app/pools/POOL_8691E637-1974-4B78-B237-D63175C39406';
+export const generalSupportPool = 'https://cash.app/pools/POOL_14F30048-8D8B-4A58-8FF0-56652DDBEAAB';
 export const globalPaymentMethods = {cashapp:{enabled:true,url:generalSupportPool},venmo:{enabled:false,url:''},zelle:{enabled:false,destination:''},card:{enabled:false,url:''}};
 export const labels = {funding:'Open for support',funded:'Goal reached',upcoming:'Coming up',completed:'Completed','made-possible':'Made possible'};
 export const statusDescriptions = {funding:'Contributions are welcome',funded:'The funding goal has been met',upcoming:'No contribution request is open',completed:'This moment has passed','made-possible':'Our village helped make this happen'};
