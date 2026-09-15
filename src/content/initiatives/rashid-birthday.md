@@ -14,6 +14,14 @@ photos:
   gallery:
     - src: '/images/events/rashid-birthday/hamilton.jpg'
       alt: 'Gold and black Hamilton musical artwork'
+    - src: '/images/events/rashid-birthday/Fox-theater.jpeg'
+      alt: 'Fox Theater'
+    - src: '/images/events/rashid-birthday/mommy-and-son.jpeg'
+      alt: 'Mommy and son'
+    - src: '/images/events/rashid-birthday/Playbill.jpeg'
+      alt: 'Hamilton playbill'
+    - src: '/images/events/rashid-birthday/pull-up.jpeg'
+      alt: 'Rashid pulling up'
   albumUrl: ''
 paymentMethods:
   cashapp:
