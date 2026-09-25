@@ -1,7 +1,8 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {statusOf,progress,sortedEvents,countdown,todayKey,paymentOptions,safeLink,imageSource,fullDateLabel,timelineDate,isOpenForFunding,generalSupportPool} from '../src/lib/events.mjs';
+import {statusOf,progress,sortedEvents,countdown,todayKey,paymentOptions,safeLink,imageSource,fullDateLabel,timelineDate,isOpenForFunding,generalSupportPool,identities} from '../src/lib/events.mjs';
 const e={date:'2026-09-11',goal:200,raised:125,status:'auto'};
+test('supported identities include Christiane',()=>{assert.deepEqual(identities.Christiane,{initial:'C',color:'sage'});});
 test('event lifecycle and non-funded events',()=>{assert.equal(statusOf(e,'2026-09-09'),'funding');assert.equal(statusOf({...e,raised:200},'2026-09-11'),'funded');assert.equal(statusOf({...e,raised:200},'2026-09-12'),'made-possible');assert.equal(statusOf(e,'2026-09-12'),'completed');assert.equal(statusOf({...e,goal:null,raised:null},'2026-09-09'),'upcoming');assert.equal(statusOf({...e,date:null},'2026-09-12'),'funding');assert.equal(statusOf({...e,status:'upcoming'},'2026-09-12'),'upcoming');});
 test('unknown totals stay unknown; overfunding never creates negative remaining',()=>{assert.equal(progress({...e,raised:null}),null);assert.deepEqual(progress(e),{percent:63,remaining:75});assert.deepEqual(progress({...e,raised:230}),{percent:100,remaining:0});});
 test('timeline uses funding deadlines for display and ordering',()=>{const events=[{id:'no-date',date:null,fundingDeadline:null},{id:'event-date',date:'2026-09-18',fundingDeadline:null},{id:'deadline',date:null,fundingDeadline:'2026-09-10'},{id:'earlier-deadline',date:'2026-09-11',fundingDeadline:'2026-09-09'}];assert.deepEqual(sortedEvents(events).map(e=>e.id),['earlier-deadline','deadline','event-date','no-date']);assert.equal(timelineDate(events[3]),'2026-09-09');assert.equal(timelineDate(events[1]),'2026-09-18');});

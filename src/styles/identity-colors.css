@@ -1,0 +1,2 @@
+:root{--sage:#e5eddf}
+.sage{--child:var(--sage);--child-ink:#4e6b45}

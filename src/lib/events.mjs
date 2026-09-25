@@ -1,4 +1,4 @@
-export const identities = {Rashid:{initial:'R',color:'peach'},Kamaal:{initial:'K',color:'blue'},Sophia:{initial:'S',color:'lilac'}};
+export const identities = {Rashid:{initial:'R',color:'peach'},Kamaal:{initial:'K',color:'blue'},Sophia:{initial:'S',color:'lilac'},Christiane:{initial:'C',color:'sage'}};
 export const generalSupportPool = 'https://cash.app/pools/POOL_14F30048-8D8B-4A58-8FF0-56652DDBEAAB';
 export const globalPaymentMethods = {cashapp:{enabled:true,url:generalSupportPool},venmo:{enabled:false,url:''},zelle:{enabled:false,destination:''},card:{enabled:false,url:''}};
 export const labels = {funding:'Open for support',funded:'Goal reached',upcoming:'Coming up',completed:'Completed','made-possible':'Made possible'};

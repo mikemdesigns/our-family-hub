@@ -2,6 +2,7 @@
 import {getCollection} from 'astro:content';
 import {statusOf,labels,statusDescriptions,money,progress,dateLabel,fullDateLabel,paymentOptions,imageSource,safeLink,identities} from '../../lib/events.mjs';
 import '../../styles/global.css';
+import '../../styles/identity-colors.css';
 
 export async function getStaticPaths(){const entries=await getCollection('initiatives');return entries.map(({id,data})=>({params:{id},props:{event:{id,...data}}}));}
 const {event:e}=Astro.props;const state=statusOf(e);const eventProgress=progress(e);const identity=identities[e.child];const cover=imageSource(e.photos?.coverImage);const gallery=(e.photos?.gallery||[]).map(photo=>({...photo,src:imageSource(photo.src)})).filter(photo=>photo.src);const coverAlt=gallery.find(photo=>photo.src===cover)?.alt||`${e.child} · ${e.title}`;const methods=paymentOptions(e);const album=safeLink(e.photos?.albumUrl);

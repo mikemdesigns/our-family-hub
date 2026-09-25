@@ -3,15 +3,15 @@ child: Kamaal
 title: Birthday Celebration
 date: '2026-09-18'
 category: Birthday
-description: We're looking to gather Kamaal and a group of his friends to visit Stars and Strikes.
+description: We we're able to take Kamaal to get his favorite food .... SUSHI! Then we had a grand time singing our hearts out at Karaoke. Thanks so much Auntie!
 goal: 300
-raised: null
-contributors: []
+raised: 300
+contributors: [Kieu]
 cta: Celebrate Kamaal
 photos:
-  coverImage: '/images/events/kamaal-birthday/bowling-alley.jpg'
+  coverImage: '/images/events/kamaal-birthday/kamaal-karaoke.png'
   gallery: []
-  albumUrl: ''
+  albumUrl: 'https://securemedia.quickconnect.to/mo/sharing/3VyRGuiTi'
 paymentMethods:
   cashapp:
     enabled: true
