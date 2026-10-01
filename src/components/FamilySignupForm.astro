@@ -1,0 +1,25 @@
+---
+interface Props { idPrefix?: string; }
+const {idPrefix = 'family-signup'} = Astro.props;
+---
+<form class="family-signup-form" data-signup-form novalidate>
+  <div class="signup-fields">
+    <div class="signup-field">
+      <label for={`${idPrefix}-name`}>Full name</label>
+      <input id={`${idPrefix}-name`} name="firstName" type="text" autocomplete="name" maxlength="80" required aria-describedby={`${idPrefix}-name-error`} />
+      <span class="field-error" id={`${idPrefix}-name-error`} data-error-for="firstName"></span>
+    </div>
+    <div class="signup-field">
+      <label for={`${idPrefix}-email`}>Email address</label>
+      <input id={`${idPrefix}-email`} name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" required aria-describedby={`${idPrefix}-email-error`} />
+      <span class="field-error" id={`${idPrefix}-email-error`} data-error-for="email"></span>
+    </div>
+  </div>
+  <div class="signup-honeypot" aria-hidden="true">
+    <label for={`${idPrefix}-website`}>Website</label>
+    <input id={`${idPrefix}-website`} name="website" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+  <button class="button dark-button signup-submit" type="submit">Keep me updated <span aria-hidden="true">→</span></button>
+  <p class="signup-privacy">Occasional family updates only. Unsubscribe anytime.</p>
+  <p class="signup-status" data-signup-status role="status" aria-live="polite"></p>
+</form>

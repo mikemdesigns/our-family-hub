@@ -69,6 +69,21 @@ Credits and reuse terms for externally sourced images are recorded in [IMAGE-CRE
 
 Run `npm install`, `npm run dev`, `npm test`, and `npm run build`. Static output is `build/`. Publish an updated build after content changes. The included GitHub Actions workflow builds on a runner and uploads the static output to DreamHost. See DEPLOYMENT.md for setup.
 
+## Family update signup
+
+The homepage offers a delayed, unobtrusive name-and-email signup. After a successful submission, that browser is not prompted again. Dismissing the dialog suppresses it for 30 days, and an automatic impression has a seven-day cooldown. The footer link always allows a visitor to open the form manually. Only status and timestamps are stored in `localStorage`; names and email addresses are not stored in the browser.
+
+The browser posts to `public/api/family-signup.php`, which Astro copies to `build/api/family-signup.php`. The PHP relay validates the submission and forwards it to a published Mautic form. Configure these values in the production web-server environment (the deploy-time `.env` is not uploaded):
+
+| Setting | Required | Purpose |
+| --- | --- | --- |
+| `MAUTIC_BASE_URL` | Yes | HTTPS origin of the Mautic installation, without a trailing slash |
+| `MAUTIC_FORM_ID` | Yes | ID of the published Mautic form |
+| `MAUTIC_FIRST_NAME_ALIAS` | No | Mautic field API name; defaults to `firstname` |
+| `MAUTIC_EMAIL_ALIAS` | No | Mautic field API name; defaults to `email` |
+
+In Mautic, create a published form with required First name and Email fields mapped to the matching contact fields. Use Mautic’s **Manual Copy** view to confirm the two field API names. No Mautic API credential is needed for this form-submission integration. On DreamHost, set the values as PHP/Apache environment variables through the domain’s server configuration; do not add secrets to this repository. Until the two required values are present, the relay returns a temporary unavailable response rather than accepting and losing a signup.
+
 The page has noindex/nofollow and robots.txt disallow rules. These are not authentication. The DreamHost domain will be publicly reachable once you upload it unless you separately enable access protection. The requested family subdomain requires domain configuration and has not been connected.
 
 ## Content still needed

@@ -5,6 +5,7 @@ import TimelineCard from '../components/TimelineCard.astro';
 import AboutThisSite from '../components/AboutThisSite.astro';
 import GeneralSupport from '../components/GeneralSupport.astro';
 import VillageThanks from '../components/VillageThanks.astro';
+import FamilySignupDialog from '../components/FamilySignupDialog.astro';
 import {sortedEvents,statusOf} from '../lib/events.mjs';
 import '../styles/global.css';
 import '../styles/identity-colors.css';
@@ -22,8 +23,9 @@ const memories=events.filter(e=>['completed','made-possible'].includes(statusOf(
 <VillageThanks events={events}/>
 <section class="memories wrap" id="memories"><div class="section-heading"><div><p class="eyebrow">THE DAYS BECOME THE STORIES</p><h2>Recently made possible <span class="accent">♡</span></h2><p>Some of the moments our family helped make happen.</p></div></div><div id="memory-grid" class="memory-grid">{memories.map(e=><MemoryCard event={e}/>)}</div><div class="memory-empty" id="memory-empty" hidden={memories.length>0}><span class="memory-mark" aria-hidden="true">♡</span><div><h3>Good things are in the making.</h3><p>After the big days, this is where we’ll keep the photos,<br class="desktop-break"/> the smiles, and a little thank-you to family.</p></div><span class="handwritten">Room for our next memory.</span></div></section>
 <section class="help-banner wrap"><div><p class="eyebrow">OUR FAMILY, OUR COMMUNITY</p><h2>It takes a village.</h2><p>Thank you for being part of our kids’ journey. Your support means everything.</p></div><button class="button dark-button" data-help>Ways to help <span aria-hidden="true">♡</span></button></section></main>
-<footer class="wrap"><a class="brand footer-brand" href="#home"><span class="monogram">M<span>•</span></span>The Martin Family</a><p>It takes a village.</p><a href="#home">Back to top ↑</a></footer>
+<footer class="wrap"><a class="brand footer-brand" href="#home"><span class="monogram">M<span>•</span></span>The Martin Family</a><p>It takes a village.</p><div class="footer-links"><button type="button" data-open-signup>Get family updates</button><a href="#home">Back to top ↑</a></div></footer>
 <dialog id="contribution-dialog" aria-labelledby="sheet-title"><div class="sheet-shell"><div class="sheet-handle" aria-hidden="true"></div><button class="close-button" id="close-sheet" aria-label="Close contribution options">×</button><div id="sheet-content"></div></div></dialog>
+<FamilySignupDialog/>
 <script id="family-data" type="application/json" set:html={JSON.stringify(events).replace(/</g,'\\u003c')}/>
-<script>import '../lib/client';</script>
+<script>import '../lib/client';import '../lib/family-signup';</script>
 </body></html>

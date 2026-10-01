@@ -1,0 +1,13 @@
+---
+import FamilySignupForm from './FamilySignupForm.astro';
+---
+<dialog class="signup-dialog" id="family-signup-dialog" aria-labelledby="family-signup-title" aria-describedby="family-signup-intro">
+  <div class="signup-dialog-shell">
+    <button class="close-button signup-close" type="button" data-close-signup aria-label="Close family updates signup">×</button>
+    <div class="signup-mark" aria-hidden="true">♡</div>
+    <p class="eyebrow">A NOTE FROM OUR FAMILY</p>
+    <h2 id="family-signup-title">Stay in the loop</h2>
+    <p id="family-signup-intro">Get an email when we add new photos, family updates, and other moments we’d like our family and friends to see.</p>
+    <FamilySignupForm idPrefix="family-signup-dialog" />
+  </div>
+</dialog>
